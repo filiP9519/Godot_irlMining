@@ -58,6 +58,7 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
 
 [node name="StartMining" type="Button" parent="TerminalWindow/ColorRect/HBoxContainer" unique_id=2064649036]
 layout_mode = 2
@@ -69,4 +70,29 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_4r28v")
 text = "Stop Mining"
 
+[node name="Panel" type="Panel" parent="TerminalWindow/ColorRect" unique_id=1910961826]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CoinVBoxContainer" type="VBoxContainer" parent="TerminalWindow/ColorRect/Panel" unique_id=58885376]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 10
+
+[node name="BalanceLabel" type="Label" parent="TerminalWindow" unique_id=39862846]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [connection signal="pressed" from="TerminalWindow/ColorRect/Exit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="TerminalWindow/ColorRect/HBoxContainer/StartMining" to="." method="_on_start_mining_pressed"]
+[connection signal="pressed" from="TerminalWindow/ColorRect/HBoxContainer/StopMining" to="." method="_on_stop_mining_pressed"]
