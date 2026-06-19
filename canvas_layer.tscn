@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://387qxb7vj61v"]
+
+[ext_resource type="Script" uid="uid://ct6l4xlhpaexp" path="res://terminal.gd" id="1_v2lfg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf015"]
+bg_color = Color(0.722636, 0, 0.12281849, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v2lfg"]
+bg_color = Color(0.1511701, 0.7232129, 0, 1)
+border_color = Color(0.8, 0.78400004, 0.78400004, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=312605251]
+script = ExtResource("1_v2lfg")
+
+[node name="TerminalWindow" type="Control" parent="." unique_id=725358568]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="TerminalWindow" unique_id=2053773539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.76862746)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TerminalWindow" unique_id=51939936]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Exit" type="Button" parent="TerminalWindow/VBoxContainer" unique_id=1294804638]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.89, 0.8722, 0.87249666, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wf015")
+text = "X"
+
+[node name="Title" type="Label" parent="TerminalWindow/VBoxContainer" unique_id=1480062286]
+layout_mode = 2
+text = "CRYPTO TERMINAL v1.0"
+
+[node name="MoneyLabel" type="Label" parent="TerminalWindow/VBoxContainer" unique_id=1218258977]
+layout_mode = 2
+text = "Balance: 0$"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TerminalWindow/VBoxContainer" unique_id=1979542660]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 15
+
+[node name="StartMining" type="Button" parent="TerminalWindow/VBoxContainer/HBoxContainer" unique_id=1763765093]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_v2lfg")
+text = "Start Mining
+"
+
+[node name="StopMining" type="Button" parent="TerminalWindow/VBoxContainer/HBoxContainer" unique_id=284195359]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_v2lfg")
+text = "Start Mining
+"

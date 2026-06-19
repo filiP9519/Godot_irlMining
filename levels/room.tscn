@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://deljl3ydroboi"]
+
+[ext_resource type="Texture2D" uid="uid://bpqpu1el2r2e6" path="res://assets/textures/worn_planks_4k.blend/textures/worn_planks_diff_4k.jpg" id="1_bisa2"]
+[ext_resource type="Script" uid="uid://dm5x7ylme34f1" path="res://assets/entities/player.gd" id="2_4o3f6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v321d"]
+albedo_texture = ExtResource("1_bisa2")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5vuv"]
+
+[node name="World" type="Node3D" unique_id=28496269]
+
+[node name="Room" type="CSGCombiner3D" parent="." unique_id=650671384]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.2, 1.8999996, 4.7683716e-07)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room" unique_id=732934183]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.0413637e-07, -2.3999996, -5.2)
+size = Vector3(10, 1, 10)
+material = SubResource("StandardMaterial3D_v321d")
+
+[node name="WallZminus" type="CSGBox3D" parent="Room" unique_id=216396686]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.200001, 3.5762787e-07, -5.2)
+size = Vector3(10, 4, 0.5)
+
+[node name="WallZplus" type="CSGBox3D" parent="Room" unique_id=927273723]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.2, 2.3841858e-07, -5.2)
+size = Vector3(10, 4, 0.5)
+
+[node name="WallXminus" type="CSGBox3D" parent="Room" unique_id=322786579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2677287e-07, -2.3841858e-07, -10.4)
+size = Vector3(10.8, 4, 0.5)
+
+[node name="WallXplus" type="CSGBox3D" parent="Room" unique_id=1472714528]
+size = Vector3(10.8, 4, 0.5)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=331468752]
+platform_floor_layers = 4294967041
+platform_wall_layers = 1
+script = ExtResource("2_4o3f6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1375170922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0280783, 0)
+shape = SubResource("CapsuleShape3D_v5vuv")
+
+[node name="head" type="Node3D" parent="Player" unique_id=2036042831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/head" unique_id=1455270467]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1467574634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.1, 0)
+omni_range = 12.599

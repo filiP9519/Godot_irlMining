@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dpv1e01dbchko"]
+
+[ext_resource type="Texture2D" uid="uid://bpqpu1el2r2e6" path="res://assets/textures/worn_planks_4k.blend/textures/worn_planks_diff_4k.jpg" id="1_4ivhd"]
+[ext_resource type="Texture2D" uid="uid://ck8xxcbhe8ydk" path="res://assets/textures/worn_planks_4k.blend/textures/worn_planks_disp_4k.png" id="2_s2h6b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_texture = ExtResource("1_4ivhd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_texture = ExtResource("2_s2h6b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+albedo_texture = ExtResource("2_s2h6b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_texture = ExtResource("2_s2h6b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_texture = ExtResource("2_s2h6b")
+
+[node name="Room1" type="CSGCombiner3D" unique_id=1301387232]
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=743323063]
+transform = Transform3D(0.9999999, 9.676296e-06, -0.00036827347, -9.79248e-06, 0.99999994, -0.0002938468, 0.00036827038, 0.00029385064, 0.9999999, 0, -0.20915252, 0)
+use_collision = true
+size = Vector3(30.5, 0.5, 30.5)
+material = SubResource("StandardMaterial3D_h2yge")
+
+[node name="WallZminus" type="CSGBox3D" parent="." unique_id=1993696777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02217722, 3.4999995, -15.154437)
+use_collision = true
+size = Vector3(30.8, 7, 0.4)
+material = SubResource("StandardMaterial3D_1bvp3")
+
+[node name="WallXplus" type="CSGBox3D" parent="." unique_id=176244157]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.2, 3.5, 0.20000076)
+use_collision = true
+size = Vector3(30.4, 7, 0.4)
+material = SubResource("StandardMaterial3D_lquwl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WallXplus" unique_id=909305315]
+transform = Transform3D(1.6800001, 0, 0, 0, 1, 0, 0, 0, 1, -8, -1, 0)
+operation = 2
+size = Vector3(3, 2, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WallXplus" unique_id=1169417949]
+transform = Transform3D(1.9756802, 0, 0, 0, 1, 0, 1.4210855e-14, 0, 1, 7.5599995, -1, 9.536743e-07)
+operation = 2
+size = Vector3(3, 2, 1)
+
+[node name="WallZPlus" type="CSGBox3D" parent="." unique_id=616943215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000029, 3.5, 15.158434)
+use_collision = true
+size = Vector3(30.4, 7, 0.4)
+material = SubResource("StandardMaterial3D_7mycd")
+
+[node name="WallXminus" type="CSGBox3D" parent="." unique_id=535784875]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.2, 3.5, 7.748604e-07)
+use_collision = true
+size = Vector3(30, 7, 0.4)
+material = SubResource("StandardMaterial3D_272bh")
+
+[node name="Roof" type="CSGBox3D" parent="." unique_id=1240472503]
+transform = Transform3D(0.99999964, 1.9244373e-05, -0.0007365497, -1.9693174e-05, 0.9999998, -0.0005876899, 0.00073653774, 0.00058770477, 0.9999995, -2.902889e-06, 7.0633874, -8.81552e-05)
+use_collision = true
+size = Vector3(30.5, 0.5, 30.5)
+material = SubResource("StandardMaterial3D_h2yge")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1961823015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.1, 0)
+visible = false
+omni_range = 30.0
+omni_attenuation = -0.024

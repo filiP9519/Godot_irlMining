@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c4t6bj4tbgikt"]
+
+[ext_resource type="Script" uid="uid://c7p706gi0r2ua" path="res://terminal_ui.gd" id="1_nxbw3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20ea4"]
+bg_color = Color(0.8522228, 0.13947177, 8.663535e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sd7c"]
+bg_color = Color(4.813075e-08, 0.5395069, 0.08791075, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4r28v"]
+bg_color = Color(0, 0.5411765, 0.08627451, 1)
+
+[node name="TerminalUI" type="CanvasLayer" unique_id=258224898]
+script = ExtResource("1_nxbw3")
+
+[node name="TerminalWindow" type="Control" parent="." unique_id=395759792]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="TerminalWindow" unique_id=840195434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Exit" type="Button" parent="TerminalWindow/ColorRect" unique_id=776092136]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_20ea4")
+text = "X"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TerminalWindow/ColorRect" unique_id=727889266]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartMining" type="Button" parent="TerminalWindow/ColorRect/HBoxContainer" unique_id=2064649036]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7sd7c")
+text = "Start Mining"
+
+[node name="StopMining" type="Button" parent="TerminalWindow/ColorRect/HBoxContainer" unique_id=1274936538]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4r28v")
+text = "Stop Mining"
+
+[connection signal="pressed" from="TerminalWindow/ColorRect/Exit" to="." method="_on_button_exit_pressed"]

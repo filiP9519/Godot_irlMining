@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://c1xi450fmpb24"]
+
+[ext_resource type="Texture2D" uid="uid://bpqpu1el2r2e6" path="res://assets/textures/worn_planks_4k.blend/textures/worn_planks_diff_4k.jpg" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dm5x7ylme34f1" path="res://scripts/player.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://ck8xxcbhe8ydk" path="res://assets/textures/worn_planks_4k.blend/textures/worn_planks_disp_4k.png" id="2_h2yge"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_texture = ExtResource("1_0xm2m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_texture = ExtResource("2_h2yge")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
+albedo_texture = ExtResource("2_h2yge")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_texture = ExtResource("2_h2yge")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_272bh"]
+albedo_texture = ExtResource("2_h2yge")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7dm0k"]
+
+[node name="Main" type="Node3D" unique_id=1758356416]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=241558640]
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1987383811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+use_collision = true
+size = Vector3(10, 0.5, 10)
+material = SubResource("StandardMaterial3D_h2yge")
+
+[node name="WallZminus" type="CSGBox3D" parent="CSGCombiner3D" unique_id=894411567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02217722, 1.4999995, -5.1757107)
+use_collision = true
+size = Vector3(10.8, 4, 0.4)
+material = SubResource("StandardMaterial3D_1bvp3")
+
+[node name="WallXplus" type="CSGBox3D" parent="CSGCombiner3D" unique_id=622440290]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.2, 1.5, 0.20000076)
+use_collision = true
+size = Vector3(10.400001, 4, 0.4)
+material = SubResource("StandardMaterial3D_lquwl")
+
+[node name="WallZPlus" type="CSGBox3D" parent="CSGCombiner3D" unique_id=644792562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000029, 1.5, 5.200001)
+use_collision = true
+size = Vector3(10.400001, 4, 0.4)
+material = SubResource("StandardMaterial3D_7mycd")
+
+[node name="WallXminus" type="CSGBox3D" parent="CSGCombiner3D" unique_id=643813019]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.2, 1.5, 7.748604e-07)
+use_collision = true
+size = Vector3(10, 4, 0.4)
+material = SubResource("StandardMaterial3D_272bh")
+
+[node name="player" type="CharacterBody3D" parent="." unique_id=1265595841]
+script = ExtResource("1_ig7tw")
+speed = null
+jump_velocity = null
+mouse_sensitivity = null
+
+[node name="Collider" type="CollisionShape3D" parent="player" unique_id=160740721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_7dm0k")
+
+[node name="head" type="Node3D" parent="player/Collider" unique_id=513284451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="player/Collider/head" unique_id=1761577097]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1789226456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.1, 0)
+omni_range = 17.145
+omni_attenuation = -0.024
