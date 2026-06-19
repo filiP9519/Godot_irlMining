@@ -8,12 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://dft8qakgimrjq" path="res://assets/models/table/office_desk_metallic_-_4mb_0.png" id="5_21ko3"]
 [ext_resource type="PackedScene" uid="uid://c4t6bj4tbgikt" path="res://interactables/terminal_ui.tscn" id="6_6yxbg"]
 [ext_resource type="Texture2D" uid="uid://dvt54rlx3cink" path="res://assets/models/table/office_desk_metallic_-_4mb_1.png" id="6_s07ge"]
+[ext_resource type="AudioStream" uid="uid://irnoetvg1ce7" path="res://sounds/windows-vista-startup.wav" id="7_21ko3"]
 [ext_resource type="Texture2D" uid="uid://dlbi0opp5655c" path="res://assets/models/table/office_desk_metallic_-_4mb_2.png" id="7_iwo8l"]
 [ext_resource type="PackedScene" uid="uid://b0y8tkdl8kl4b" path="res://assets/models/ceiling_light_round.glb" id="8_j7211"]
 [ext_resource type="Script" uid="uid://d3b73qifkgmau" path="res://interactables/lightswitch.gd" id="9_fd7wu"]
 [ext_resource type="PackedScene" uid="uid://cb105qq356701" path="res://assets/models/light_switch/light_switch.glb" id="10_m080e"]
 [ext_resource type="PackedScene" uid="uid://chnxb8015kys2" path="res://assets/models/bed/old_bed.glb" id="11_nljbn"]
 [ext_resource type="PackedScene" uid="uid://dcb35vcf1i2ao" path="res://assets/models/chair/chair.glb" id="12_w23s1"]
+[ext_resource type="AudioStream" uid="uid://bepaesokcd225" path="res://sounds/lightswitch.wav" id="13_4fc0e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_texture = ExtResource("1_c7dyn")
@@ -167,6 +169,11 @@ transform = Transform3D(1, 0, 0, 0, 2.220446e-16, 1, 0, -1, 2.220446e-16, 0, -0.
 script = ExtResource("5_1fput")
 terminal_scene = ExtResource("6_6yxbg")
 
+[node name="openPC" type="AudioStreamPlayer3D" parent="PC_Setup/Sketchfab_model/root/GLTF_SceneRootNode/Monitor_01_7/Object_18/StaticBody3D" index="1" unique_id=393900744]
+transform = Transform3D(0.33333334, 0, 0, 0, 0.33333334, 0, 0, 0, 0.33333334, 0, -0.23826355, 0.4531598)
+stream = ExtResource("7_21ko3")
+volume_db = -13.488
+
 [node name="Stol" type="Node3D" parent="." unique_id=1121682734]
 transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 13, 0, -14)
 
@@ -213,6 +220,9 @@ transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lightswitch" unique_id=1219444337]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.0956562, 6.9771566, 12.943386)
 shape = SubResource("BoxShape3D_efxa6")
+
+[node name="switchSound" type="AudioStreamPlayer3D" parent="Lightswitch" unique_id=796416640]
+stream = ExtResource("13_4fc0e")
 
 [node name="Bed" parent="." unique_id=512754274 instance=ExtResource("11_nljbn")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -13.797282, 0, -12.223383)

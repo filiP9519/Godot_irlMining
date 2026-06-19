@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4t6bj4tbgikt"]
 
 [ext_resource type="Script" uid="uid://c7p706gi0r2ua" path="res://terminal_ui.gd" id="1_nxbw3"]
+[ext_resource type="AudioStream" uid="uid://c2dwpdor1d68" path="res://sounds/button_click.wav" id="2_20ea4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20ea4"]
 bg_color = Color(0.8522228, 0.13947177, 8.663535e-07, 1)
@@ -92,6 +93,10 @@ offset_left = -40.0
 offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="TerminalWindow" unique_id=1897460733]
+stream = ExtResource("2_20ea4")
+volume_db = -20.07
 
 [connection signal="pressed" from="TerminalWindow/ColorRect/Exit" to="." method="_on_button_exit_pressed"]
 [connection signal="pressed" from="TerminalWindow/ColorRect/HBoxContainer/StartMining" to="." method="_on_start_mining_pressed"]

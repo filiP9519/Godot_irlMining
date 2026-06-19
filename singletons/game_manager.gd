@@ -38,7 +38,9 @@ func update_prices(data):
 	for coin in data:	
 		var coin_info = {
 			"name" : coin["name"],
-			"price" : coin["current_price"]
+			"price" : coin["current_price"],
+			"difficulty" : 1.0 + (coin["current_price"] / 10000.0),
+			"block_reward" : coin["current_price"] * 0.05
 		}
 		crypto_list.append(coin_info)
 	print("Mám načítaných ", crypto_list.size(), " mien.")
@@ -46,5 +48,9 @@ func update_prices(data):
 
 func _process(delta: float) -> void:
 	if selected_crypto != null:
-		var mining_speed = 0.001
+		var mining_speed = 0.0001 / selected_crypto["difficulty"]
 		balance += (selected_crypto["price"] * mining_speed) * delta
+	if randf() <0.005 * delta:
+		var bonus = selected_crypto["block_reward"]
+		balance += bonus
+		print("Blok najdeny! Bonus: $",bonus)
